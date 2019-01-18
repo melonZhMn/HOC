@@ -1,5 +1,7 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
+import logger from 'redux-logger'
+
 import * as reducer from './reducer'
 /*=================
     store.jsx
@@ -7,6 +9,7 @@ import * as reducer from './reducer'
 ==================*/
 var store = createStore(
     combineReducers(reducer),
-    applyMiddleware(thunk)
+    applyMiddleware(logger),
+    applyMiddleware(thunk),
 );
 export default store;
